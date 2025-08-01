@@ -1,4 +1,4 @@
- 🐾 Pawsy - Cat Meet-Up & Dating App
+ 🐾 Pawsy - Play date app
 
 Pawsy is a fun and modern Flutter app designed for cat lovers who want to connect their pets with new feline friends. Whether you're looking for a playdate or a perfect match, Pawsy makes it pawsible!
 
