@@ -1,0 +1,38 @@
+name: pawsy_app
+description: A cat dating and meet-up app.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  provider: ^6.1.2
+  lottie: ^2.7.0
+  google_fonts: ^6.1.0
+  firebase_core: ^2.30.0
+  firebase_auth: ^4.17.9
+  cloud_firestore: ^4.15.9
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+
+flutter:
+ 
+  uses-material-design: true
+
+  assets:
+    - assets/images/cat1.jpg
+    - assets/images/cat2.jpg
+    - assets/images/cat3.jpg
+    - assets/lottie/heart.json
+    - assets/lottie/paw.json
+
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/Poppins-Regular.ttf
