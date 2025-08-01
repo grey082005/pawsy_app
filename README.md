@@ -1,16 +1,16 @@
-# pawsy_app
+ 🐾 Pawsy - Cat Meet-Up & Dating App
 
-A new Flutter project.
+Pawsy is a fun and modern Flutter app designed for cat lovers who want to connect their pets with new feline friends. Whether you're looking for a playdate or a perfect match, Pawsy makes it pawsible!
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ 🐱 Swipeable cat profile cards (like/dislike)
+ 💖 Liked matches screen with stored profiles
+ 🐾 Detailed cat profile views
+ 🌙 Dark mode toggle
+ 🔐 Login/Signup screens (UI only, Firebase-ready)
+ ✨ Animations (Lottie, swipe transitions)
+ 🎨 Clean UI with Poppins font
+ 🔧 Firebase integration placeholder
