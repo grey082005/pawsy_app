@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import '../models/cat_profile.dart';
-import 'match_screen.dart';
-import 'liked_screen.dart';
-import 'profile_screen.dart';
-import '../components/bottom_nav.dart';
+import 'package:pawsy_app/components/bottom_nav.dart';
+import 'package:pawsy_app/screens/match_screen.dart';
+import 'package:pawsy_app/screens/liked_screen.dart';
+import 'package:pawsy_app/screens/profile_screen.dart';
+import 'package:pawsy_app/screens/event_screen.dart';
+import 'package:pawsy_app/models/cat_profile.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,35 +14,49 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _currentIndex = 0;
+  int _selectedIndex = 0;
+
   final List<CatProfile> _likedCats = [];
 
-  void _likeCat(CatProfile cat) {
-    if (!_likedCats.contains(cat)) {
-      setState(() {
-        _likedCats.add(cat);
-      });
-      print("Liked ${cat.name}, total liked: ${_likedCats.length}");
-    }
+  void _onLike(CatProfile cat) {
+    setState(() {
+      _likedCats.add(cat);
+    });
+  }
+
+  void _onDislike() {
+    // Optional: You can add logic here
+  }
+
+  late final List<Widget> _screens;
+
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
+      MatchScreen(
+        onLike: _onLike,
+        onDislike: _onDislike,
+      ),
+      LikedScreen(likedCats: _likedCats),
+      const ProfileScreen(),
+      const EventScreen(),
+    ];
+  }
+
+  void _onTabTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _screens = [
-      MatchScreen(onLike: _likeCat),
-      LikedScreen(likedCats: _likedCats),
-      const ProfileScreen(),
-    ];
-
     return Scaffold(
-      body: _screens[_currentIndex],
-      bottomNavigationBar: BottomNavBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+      body: _screens[_selectedIndex],
+      bottomNavigationBar: BottomNav(
+        currentIndex: _selectedIndex,
+        onTap: _onTabTapped,
       ),
     );
   }

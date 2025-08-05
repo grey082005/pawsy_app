@@ -5,44 +5,66 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String name = 'Fluffy';
+    final int age = 2;
+    final String breed = 'British Shorthair';
+    final String bio = 'Loves chasing lasers and napping on windowsills.';
+    final String image = 'assets/images/cat1.jpg';
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("My Profile"),
+        title: const Text('My Profile'),
+        centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(24.0),
+      body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const CircleAvatar(
-              radius: 60,
-              backgroundImage: AssetImage("assets/images/cat1.jpg"),
-            ),
             const SizedBox(height: 20),
-            const Text(
-              "Meowster",
-              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 8),
-            const Text(
-              "Age: 3",
-              style: TextStyle(fontSize: 18),
+            CircleAvatar(
+              radius: 60,
+              backgroundImage: AssetImage(image),
             ),
             const SizedBox(height: 16),
-            const Text(
-              "Hi! I'm Meowster. I love long naps on the windowsill and playing with yarn. Looking for feline friends to vibe with!",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16),
+            Text(
+              name,
+              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
-            const SizedBox(height: 24),
+            Text('$age years old • $breed'),
+            const SizedBox(height: 12),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Text(
+                bio,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 16, color: Colors.black87),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: LinearProgressIndicator(
+                value: 0.8, // e.g. 80% profile complete
+                backgroundColor: Colors.grey[300],
+                color: Colors.green,
+                minHeight: 10,
+              ),
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              'Profile 80% complete',
+              style: TextStyle(fontSize: 14, color: Colors.grey),
+            ),
+            const SizedBox(height: 30),
             ElevatedButton.icon(
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text("Edit Profile coming soon!")),
-                );
+                // Add logic for editing profile
               },
               icon: const Icon(Icons.edit),
               label: const Text("Edit Profile"),
+              style: ElevatedButton.styleFrom(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              ),
             ),
           ],
         ),

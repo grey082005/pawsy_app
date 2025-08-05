@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class BottomNavBar extends StatelessWidget {
+class BottomNav extends StatelessWidget {
   final int currentIndex;
   final Function(int) onTap;
 
-  const BottomNavBar({
+  const BottomNav({
     super.key,
     required this.currentIndex,
     required this.onTap,
@@ -15,11 +15,24 @@ class BottomNavBar extends StatelessWidget {
     return BottomNavigationBar(
       currentIndex: currentIndex,
       onTap: onTap,
-      selectedItemColor: Colors.pinkAccent,
+      type: BottomNavigationBarType.fixed, // Needed for 4+ items
       items: const [
-        BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'Match'),
-        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-        BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.pets),
+          label: 'Match',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.favorite),
+          label: 'Liked',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: 'Profile',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.event),
+          label: 'Events',
+        ),
       ],
     );
   }
